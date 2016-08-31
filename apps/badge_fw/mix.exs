@@ -21,11 +21,12 @@ defmodule BadgeFw.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {BadgeFw, []},
-     applications: [:logger, :badge_lib]]
+     applications: [:logger, :badge_lib, :nerves_interim_wifi]]
   end
 
   def deps do
     [{:nerves, "~> 0.3.0"},
+     {:nerves_interim_wifi, "~> 0.1"},
      {:badge_lib, in_umbrella: true}]
   end
 

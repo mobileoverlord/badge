@@ -10,3 +10,8 @@ use Mix.Config
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.Project.config[:target]}.exs"
+
+config :badge_fw, :wlan0,
+  ssid: "Nerves",
+  key_mgmt: :"WPA-PSK",
+  psk: "nervesnet"
