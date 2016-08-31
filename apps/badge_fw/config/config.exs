@@ -24,3 +24,10 @@ config :nerves_ntp, :servers, [
     "2.pool.ntp.org",
     "3.pool.ntp.org"
   ]
+
+config :extwitter, :oauth, [
+   consumer_key: "vnBfkubUmv10QRcQjFU3lXKin",
+   consumer_secret: "XUk3fsulkfraaapUyMOfnVRtd8fXdlkKMQvhjDv5nnEVrsk7yA",
+   access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
+   access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
+]

@@ -18,7 +18,7 @@ defmodule BadgeLib.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :firmata]]
+    [applications: [:logger, :firmata, :oauth, :extwitter, :poison]]
   end
 
   # Dependencies can be Hex packages:
@@ -35,6 +35,9 @@ defmodule BadgeLib.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:firmata, github: "mobileoverlord/firmata"}]
+    [{:firmata, github: "mobileoverlord/firmata"},
+     {:oauth, github: "tim/erlang-oauth"},
+     {:extwitter, "~> 0.6"},
+     {:poison, "~> 2.2"}]
   end
 end
