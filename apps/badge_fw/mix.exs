@@ -21,7 +21,7 @@ defmodule BadgeFw.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {BadgeFw, []},
-     applications: [:logger, :badge_lib,
+     applications: [:logger, :badge_lib, :badge_settings,
        :nerves_interim_wifi, :nerves_ntp]]
   end
 
@@ -29,7 +29,8 @@ defmodule BadgeFw.Mixfile do
     [{:nerves, "~> 0.3.0"},
      {:nerves_interim_wifi, "~> 0.1"},
      {:nerves_ntp, "~> 0.1"},
-     {:badge_lib, in_umbrella: true}]
+     {:badge_lib, in_umbrella: true},
+     {:badge_settings, in_umbrella: true}]
   end
 
   def system(target) do

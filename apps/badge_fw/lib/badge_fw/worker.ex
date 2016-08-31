@@ -16,7 +16,13 @@ defmodule BadgeFw.Worker do
   end
 
   def handle_info(:update, %{last: {lhash, luser}} = s) do
-    {hash, user} = {@handle, @hashtag}
+    {hash, user} =
+    case BadgeFw.settings do
+      {:ok, settings} ->
+        {Map.get(settings, :handle), Map.get(settings, :hashtag)}
+      _ ->
+        {@handle, @hashtag}
+    end
 
     new_hash = get_tweet(hash)
     new_user = get_tweet(user)

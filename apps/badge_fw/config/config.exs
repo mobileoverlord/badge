@@ -31,3 +31,18 @@ config :extwitter, :oauth, [
    access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
    access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
 ]
+
+config :badge_settings, :nerves_settings, %{
+  settings_file: "/root/nerves_settings.txt",
+  device_name: "My Awesome Device",
+  application_password: System.get_env("BADGE_CONFIG_PASSWORD") || "nerves_rulz!"
+}
+
+config :badge_settings, BadgeSettings.Endpoint,
+  url: [host: "0.0.0.0"],
+  http: [port: 80],
+  secret_key_base: "R02jL0Vi+tFH7YOecTua/oc0b2dETOQT8/Sg9dD56EDKqmd8jRAdqa0CyZ7tOFIt",
+  render_errors: [view: BadgeSettings.ErrorView, accepts: ~w(html json)],
+  server: true,
+  pubsub: [name: BadgeSettings.PubSub,
+           adapter: Phoenix.PubSub.PG2]
